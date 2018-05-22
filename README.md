@@ -1,6 +1,5 @@
 # Phenolyzer.iobio
 
-> An electron-vue project
 
 #### Build Setup
 
@@ -13,6 +12,9 @@ npm run dev
 
 # build electron application for production
 npm run build
+
+# build application for darwin, mas, linux and win32
+npm run build:darwin
 
 
 ```
