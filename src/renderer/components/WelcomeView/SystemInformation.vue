@@ -18,7 +18,7 @@
         <div class="value">{{ vue }}</div>
       </v-flex>
       <v-flex xs12 sm6 md4 class="item">
-        <div class="name">Electron:</div>
+        <div class="name">Phenolyzer.iobio:</div>
         <div class="value">{{ electron }}</div>
       </v-flex>
       <v-flex xs12 sm6 md4 class="item">
