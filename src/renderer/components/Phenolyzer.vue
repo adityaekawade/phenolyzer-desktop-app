@@ -652,4 +652,3 @@
   }
 }
 </style>
-<!-- electron-packager ./ --platform=darwin --arch=x64 -->
