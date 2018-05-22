@@ -23,11 +23,6 @@ export default new Router({
       component: require('@/components/Phenolyzer').default
     },
     {
-      path: '/inspire',
-      name: 'inspire',
-      component: require('@/components/InspireView').default
-    },
-    {
       path: '*',
       redirect: '/'
     }
