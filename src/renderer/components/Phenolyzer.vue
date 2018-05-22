@@ -13,6 +13,7 @@
         {{ snackbarText }}
         <v-btn flat color="pink" @click.native="snackbar = false">Close</v-btn>
       </v-snackbar>
+      <br>
     <v-flex >
       <v-card>
         <v-card-text >
@@ -70,9 +71,9 @@
       </v-card>
     </v-flex>
     <v-flex>
-      <v-card style="margin-top:4px" >
+      <v-card style="margin-top:4px" v-if="multipleSearchTerms.length">
                 <v-card-title primary class="title" >
-                  <span class="text-xs-center" v-if="multipleSearchTerms.length"><v-chip outline color="primary">{{ selectedGenesText }}</v-chip></span>
+                  <span class="text-xs-center" ><v-chip outline color="primary">{{ selectedGenesText }}</v-chip></span>
                   <span  v-if="multipleSearchTerms.length" style="margin-left:20px;display: ">
                     <!-- v-if="items.length>1" -->
                     <!-- <strong>
@@ -97,6 +98,11 @@
                       </v-btn>
                     </span>
                   -->
+                  <span>
+                    <v-btn flat @click="copyPhenolyzerGenes"
+                      ><v-icon style="padding-right:4px">content_copy</v-icon>
+                      Copy Phenolyzer genes to clipboard</v-btn>
+                  </span>
                     <v-text-field
                       append-icon="search"
                       label="Search"
@@ -312,6 +318,19 @@
     methods: {
       open (link) {
         this.$electron.shell.openExternal(link)
+      },
+      copyPhenolyzerGenes: function(){
+        var geneNames = this.selected.map(gene => {
+          return gene.geneName
+        })
+        var geneNamesToString = geneNames.toString();
+        var genesToCopy = geneNamesToString.replace(/,/gi , ' ');
+        this.$clipboard(genesToCopy);
+
+        if(this.selected.length>0){
+          this.snackbarText = " Number of Genes Copied : " + this.selected.length + " ";
+        }
+        this.snackbar=true;
       },
       SelectAllPhenolyzerGenes(data){
         this.selected = this.items.slice();
@@ -809,3 +828,6 @@
       font-size: 22px
       color: $text-color !important
   </style> -->
+
+
+<!-- electron-packager ./ --platform=darwin --arch=x64 -->

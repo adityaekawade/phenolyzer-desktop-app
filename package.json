@@ -1,9 +1,9 @@
 {
-  "name": "my-project",
-  "productName": "my-project",
+  "name": "phenolyzer.iobio",
+  "productName": "phenolyzer.iobio",
   "version": "0.0.0",
   "author": "Aditya Ekawade <aditya.ekawade@gmail.com>",
-  "description": "An electron-vue project",
+  "description": "Phenolyzer- Generate a list of prioritized genes for phenotype terms",
   "license": null,
   "main": "./dist/electron/main.js",
   "scripts": {
@@ -24,6 +24,7 @@
     "axios": "^0.16.1",
     "jquery": "^3.3.1",
     "uiv": "^0.22.0",
+    "v-clipboard": "^1.0.4",
     "vue": "^2.4.2",
     "vue-electron": "^1.0.6",
     "vue-router": "^2.5.3",
